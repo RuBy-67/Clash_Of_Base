@@ -1,10 +1,9 @@
 const chalk = require("chalk");
 const fs = require("fs");
-const { google } = require("googleapis");
 const { Client, Collection, Intents, MessageEmbed } = require("discord.js");
 const { loadEvents } = require("../src/handlers/loadEvents");
 const { loadSlashCommands } = require("../src/handlers/loadSlashCommands");
-const { botToken, spreadsheetId } = require("../src/jsons/config.json");
+const { botToken } = require("../src/jsons/config.json");
 
 // Declaring our Discord Client
 const client = new Client({
@@ -19,25 +18,10 @@ const client = new Client({
     Intents.FLAGS.GUILD_INVITES,
     Intents.FLAGS.GUILD_BANS,
     Intents.FLAGS.GUILD_PRESENCES,
-
   ],
 });
 
-// Google Sheets Authorisation Stuff
-const auth = new google.auth.GoogleAuth({
-  keyFile: "./src/jsons/credentials.json",
-  scopes: "https://www.googleapis.com/auth/spreadsheets",
-});
-const sheetClient = auth.getClient();
-const googleSheets = google.sheets({ version: "v4", auth: sheetClient });
-
-// Stuff that will be very useful in our project
-client.sheetCommands = fs.readdirSync("./src/SlashCommands/Sheets/");
 client.slash = new Collection();
-client.auth = auth;
-client.sheetId = spreadsheetId;
-client.googleSheets = googleSheets.spreadsheets;
-
 // Declaring Slash Command and Events
 loadEvents(client);
 loadSlashCommands(client);
