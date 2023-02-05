@@ -1,7 +1,7 @@
 {
-  "name": "discord-sheets",
-  "version": "1.0.0",
-  "description": "A bot that uses google sheets to store users",
+  "name": "clashofbase",
+  "version": "2.0.0",
+  "description": "Discord Clash Of clan Bot",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,7 +16,6 @@
     "discord.js": "^13.3.1",
     "fs": "^0.0.1-security",
     "google": "^0.6.0",
-    "googleapis": "^109.0.1",
     "token": "^0.1.0"
   }
 }
