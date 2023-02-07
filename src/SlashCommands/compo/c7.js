@@ -50,28 +50,27 @@ module.exports = {
       return client.emojis.cache.get(id).toString();
     }
     const code = await interaction.options.getString("liste");
-    const embed = new MessageEmbed()
-    
+    const embed = new MessageEmbed();
+
     if (code == "") {
-
-        return interaction.reply({ embeds: [embed] });
+      return interaction.reply({ embeds: [embed] });
     }
-    
 
-      .setTitle("Help Compo th7")
-      .setDescription("")
+    embed.setTitle("Help Compo th7");
+    embed.setDescription("gg");
+    embed
       .addFields(
         {
-          name: "",
-          value: "",
+          name: "h",
+          value: "h",
         },
         {
-          name: "",
-          value: "",
+          name: "h",
+          value: "h",
         },
         {
-          name: "",
-          value: "",
+          name: "h",
+          value: "h",
           inline: true,
         }
       )

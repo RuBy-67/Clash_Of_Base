@@ -15,16 +15,16 @@ module.exports = {
       .setDescription("")
       .addFields(
         {
-          name: "",
-          value: "",
+          name: "h",
+          value: "h",
         },
         {
-          name: "",
-          value: "",
+          name: "h",
+          value: "h",
         },
         {
-          name: "",
-          value: "",
+          name: "h",
+          value: "h",
           inline: true,
         }
       )
