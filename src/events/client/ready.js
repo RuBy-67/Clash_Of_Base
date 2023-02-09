@@ -31,9 +31,11 @@ module.exports = (client) => {
    */
   async function updateActivity(client) {
     const activities = [
-      `/help | Watching Geek in #1215`,
+      `/help | Watching Clash API`,
       `Created by RuBy#0822`,
       `look ${allMembers.size} members`,
+      `/player ${client.guilds.cache.size} servers `,
+      `/clan ${client.channels.cache.size} channels `,
     ];
     setInterval(() => {
       const status = activities[Math.floor(Math.random() * activities.length)];

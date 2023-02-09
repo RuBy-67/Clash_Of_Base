@@ -25,13 +25,13 @@ module.exports = {
       //Thumbail aléatoire la première (pdp originale) a 65% de chance de sortir les autres on  35% / le nombre d'image)
       const links = [
         "https://cdn.discordapp.com/attachments/1071177069985284292/1073020978935906404/RuBy_an_archer_inspired_by_the_clash_of_clans_universe_with_pin_8e5d04fe-e1bb-401b-bb73-31f5754356b7.png",
-        "https://cdn.discordapp.com/attachments/1071177069985284292/1073020978596159538/DALLE_2023-02-09_00.08.20_-_complete_this_with_black_hair_in_wind_and_small_dead_head_in_their_hair_.png",
-        "https://cdn.discordapp.com/attachments/1071177069985284292/1073020979212718080/DALLE_2023-02-09_00.04.28_-_complete_this_image_with_red_hair_.png",
-        "https://cdn.discordapp.com/attachments/1071177069985284292/1073020979560857630/DALLE_2023-02-09_00.06.14_-_complete_this_image_with_blue_hair_in_wind_.png",
-        "https://cdn.discordapp.com/attachments/1071177069985284292/1073028843260088340/DALLE_2023-02-09_00.44.15_-_Skull_.png",
-        "https://cdn.discordapp.com/attachments/1071177069985284292/1073028843503374416/DALLE_2023-02-09_00.45.59_-_Cyborg_.png",
-        "https://cdn.discordapp.com/attachments/1071177069985284292/1073028843763412992/DALLE_2023-02-09_00.47.35_-_a_Robot_.png",
-        "https://cdn.discordapp.com/attachments/1071177069985284292/1073028844124131409/DALLE_2023-02-09_00.47.50_-_a_Robot_.png",
+        "https://cdn.discordapp.com/attachments/1069329186365394995/1073335784796594316/DALLE_2023-02-09_00.08.20_-_complete_this_with_black_hair_in_wind_and_small_dead_head_in_their_hair_.png",
+        "https://cdn.discordapp.com/attachments/1069329186365394995/1073335785090199552/DALLE_2023-02-09_00.44.15_-_Skull_.png",
+        "https://cdn.discordapp.com/attachments/1069329186365394995/1073335785559957554/DALLE_2023-02-09_00.04.28_-_complete_this_image_with_red_hair_.png",
+        "https://cdn.discordapp.com/attachments/1069329186365394995/1073335785929060433/DALLE_2023-02-09_00.06.14_-_complete_this_image_with_blue_hair_in_wind_.png",
+        "https://cdn.discordapp.com/attachments/1069329186365394995/1073335786235252876/DALLE_2023-02-09_00.47.35_-_a_Robot_.png",
+        "https://cdn.discordapp.com/attachments/1069329186365394995/1073335786545623112/DALLE_2023-02-09_00.47.50_-_a_Robot_.png",
+        "https://cdn.discordapp.com/attachments/1069329186365394995/1073335787090890762/DALLE_2023-02-09_00.45.59_-_Cyborg_.png",
       ];
 
       const randomNumber = Math.random() * 100;
@@ -74,80 +74,124 @@ module.exports = {
         interaction.reply({ embeds: [error] });
       })
       .then((response) => {
+        var equity = response.donations - response.donationsReceived;
+
         if (response.league != undefined || response.league != null) {
           var ligue;
-          if (response.league.name == "Legend League") {
-            ligue = emoji(emo.legend) + "|" + response.league.name;
-          } else if (response.league.name == "Bronze League") {
-            ligue = emoji(emo.bronze) + "|" + response.league.name;
-          } else if (response.league.name == "Silver League") {
-            ligue = emoji(emo.silver) + "|" + response.league.name;
-          } else if (response.league.name == "Gold League") {
-            ligue = emoji(emo.gold) + "|" + response.league.name;
-          } else if (response.league.name == "Crystal League") {
-            ligue = emoji(emo.cristal) + "|" + response.league.name;
-          } else if (response.league.name == "Master League") {
-            ligue = emoji(emo.master) + "|" + response.league.name;
-          } else if (response.league.name == "Champion League") {
-            ligue = emoji(emo.champion) + "|" + response.league.name;
-          } else if (response.league.name == "Titan League") {
-            ligue = emoji(emo.titan) + "|" + response.league.name;
-          }
-        } else ligue = emoji(emo.no_league) + "Not Classed";
+          if (response.league.id == 29000022) {
+            ligue = emoji(emo.legend);
+          } else if (response.league.id == 29000001) {
+            ligue = emoji(emo.bronze1);
+          } else if (response.league.id == 29000002) {
+            ligue = emoji(emo.bronze2);
+          } else if (response.league.id == 29000003) {
+            ligue = emoji(emo.bronze3);
+          } else if (response.league.id == 29000004) {
+            ligue = emoji(emo.silver3);
+          } else if (response.league.id == 29000005) {
+            ligue = emoji(emo.silver2);
+          } else if (response.league.id == 29000006) {
+            ligue = emoji(emo.silver1);
+          } else if (response.league.id == 29000007) {
+            ligue = emoji(emo.gold3);
+          } else if (response.league.id == 29000008) {
+            ligue = emoji(emo.gold2);
+          } else if (response.league.id == 29000009) {
+            ligue = emoji(emo.gold1);
+          } else if (response.league.id == 29000010) {
+            ligue = emoji(emo.cristal3);
+          } else if (response.league.id == 29000011) {
+            ligue = emoji(emo.cristal2);
+          } else if (response.league.id == 29000012) {
+            ligue = emoji(emo.cristal1);
+          } else if (response.league.id == 29000013) {
+            ligue = emoji(emo.master3);
+          } else if (response.league.id == 29000014) {
+            ligue = emoji(emo.master2);
+          } else if (response.league.id == 29000015) {
+            ligue = emoji(emo.master1);
+          } else if (response.league.id == 29000016) {
+            ligue = emoji(emo.champ3);
+          } else if (response.league.id == 29000017) {
+            ligue = emoji(emo.champ2);
+          } else if (response.league.id == 29000018) {
+            ligue = emoji(emo.champ1);
+          } else if (response.league.id == 29000019) {
+            ligue = emoji(emo.titan3);
+          } else if (response.league.id == 29000020) {
+            ligue = emoji(emo.titan2);
+          } else if (response.league.id == 29000021) {
+            ligue = emoji(emo.titan3);
+          } else ligue = emoji(emo.no_league);
+        } else ligue = emoji(emo.no_league);
         var town;
         if (response.townHallLevel == "1") {
-          town = emoji(emo.th1) + response.townHallLevel;
+          town = emoji(emo.th1) + " " + response.townHallLevel;
           e.setColor("#FFD500");
         } else if (response.townHallLevel == "2") {
-          town = emoji(emo.th2) + response.townHallLevel;
+          town = emoji(emo.th2) + " " + response.townHallLevel;
           e.setColor("#FFD500");
         } else if (response.townHallLevel == "3") {
           e.setColor("#FFD500");
-          town = emoji(emo.th3) + response.townHallLevel;
+          town = emoji(emo.th3) + " " + response.townHallLevel;
         } else if (response.townHallLevel == "4") {
           e.setColor("#FFD500");
-          town = emoji(emo.th4) + response.townHallLevel;
+          town = emoji(emo.th4) + " " + response.townHallLevel;
         } else if (response.townHallLevel == "5") {
           e.setColor("#FFD500");
-          town = emoji(emo.th5) + response.townHallLevel;
+          town = emoji(emo.th5) + " " + response.townHallLevel;
         } else if (response.townHallLevel == "6") {
           e.setColor("#FFD500");
-          town = emoji(emo.th6) + response.townHallLevel;
+          town = emoji(emo.th6) + " " + response.townHallLevel;
         } else if (response.townHallLevel == "7") {
           e.setColor("#FFD500");
-          town = emoji(emo.th7) + response.townHallLevel;
+          town = emoji(emo.th7) + " " + response.townHallLevel;
         } else if (response.townHallLevel == "8") {
           e.setColor("#FFD500");
-          town = emoji(emo.th8) + response.townHallLevel;
+          town = emoji(emo.th8) + " " + response.townHallLevel;
         } else if (response.townHallLevel == "9") {
           e.setColor("#000000");
-          town = emoji(emo.th9) + response.townHallLevel;
+          town = emoji(emo.th9) + " " + response.townHallLevel;
         } else if (response.townHallLevel == "10") {
           e.setColor("#FF4C00");
-          town = emoji(emo.th10) + response.townHallLevel;
+          town = emoji(emo.th10) + " " + response.townHallLevel;
         } else if (response.townHallLevel == "11") {
           e.setColor("#FFFFFF");
-          town = emoji(emo.th11) + response.townHallLevel;
+          town = emoji(emo.th11) + " " + response.townHallLevel;
         } else if (response.townHallLevel == "12") {
           e.setColor("#0064FF");
-          town = emoji(emo.th12) + response.townHallLevel;
+          town = emoji(emo.th12) + " " + response.townHallLevel;
         } else if (response.townHallLevel == "13") {
           e.setColor("#05F7E1");
-          town = emoji(emo.th13) + response.townHallLevel;
+          town = emoji(emo.th13) + " " + response.townHallLevel;
         } else if (response.townHallLevel == "14") {
           e.setColor("#84F705");
-          town = emoji(emo.th14) + response.townHallLevel;
+          town = emoji(emo.th14) + " " + response.townHallLevel;
         } else {
-          town = emoji(emo.th15) + response.townHallLevel;
+          town = emoji(emo.th15) + " " + response.townHallLevel;
           e.setColor("#51B1FF");
         }
+        var bhemo;
+        if (response.builderHallLevel == "1") {
+          bhemo = emoji(emo.mdo1) + " " + response.builderHallLevel;
+        } else if (response.builderHallLevel == "2") {
+          bhemo = emoji(emo.mdo2) + " " + response.builderHallLevel;
+        } else if (response.builderHallLevel == "3") {
+          bhemo = emoji(emo.mdo3) + " " + response.builderHallLevel;
+        } else if (response.builderHallLevel == "4") {
+          bhemo = emoji(emo.mdo4) + " " + response.builderHallLevel;
+        } else if (response.builderHallLevel == "5") {
+          bhemo = emoji(emo.mdo5) + " " + response.builderHallLevel;
+        } else if (response.builderHallLevel == "6") {
+          bhemo = emoji(emo.mdo6) + " " + response.builderHallLevel;
+        } else if (response.builderHallLevel == "7") {
+          bhemo = emoji(emo.mdo7) + " " + response.builderHallLevel;
+        } else if (response.builderHallLevel == "8") {
+          bhemo = emoji(emo.mdo8) + " " + response.builderHallLevel;
+        } else if (response.builderHallLevel == "9") {
+          bhemo = emoji(emo.mdo9) + " " + response.builderHallLevel;
+        } else bhemo = "blocked";
 
-        if (
-          response.builderHallLevel != undefined ||
-          response.builderHallLevel != null
-        )
-          var bh = response.builderHallLevel;
-        else bh = "blocked";
         if (response.clan != undefined || response.clan != null)
           var clan =
             " **[" +
@@ -165,15 +209,135 @@ module.exports = {
           response.labels[0] === null ||
           response.labels.length === "0"
         ) {
-          var labels = "Not Defined";
         } else {
-          labels =
-            response.labels[0].name +
-            " **|** " +
-            response.labels[1].name +
-            " **|** " +
-            response.labels[2].name;
+          var emoLabel1;
+          if (response.labels[0].name == "Active Daily") {
+            emoLabel1 = emoji(emo.ActiveDaily);
+          } else if (response.labels[0].name == "Active Donator") {
+            emoLabel1 = emoji(emo.ActiveDonator);
+          } else if (response.labels[0].name == "Amateur Attacker") {
+            emoLabel1 = emoji(emo.AmateurAttacker);
+          } else if (response.labels[0].name == "Hungry Learner") {
+            emoLabel1 = emoji(emo.AngryLearner);
+          } else if (response.labels[0].name == "Base Designing") {
+            emoLabel1 = emoji(emo.BaseDesigning);
+          } else if (response.labels[0].name == "Builder Base") {
+            emoLabel1 = emoji(emo.BuilderBase);
+          } else if (response.labels[0].name == "Clan Capital") {
+            emoLabel1 = emoji(emo.ClanCapital);
+          } else if (response.labels[0].name == "Clan Games") {
+            emoLabel1 = emoji(emo.ClanGames);
+          } else if (response.labels[0].name == "Clan Wars") {
+            emoLabel1 = emoji(emo.ClanWars);
+          } else if (response.labels[0].name == "ClanWarLeague") {
+            emoLabel1 = emoji(emo.ClanWarLeague);
+          } else if (response.labels[0].name == "Competitive") {
+            emoLabel1 = emoji(emo.Competitive);
+          } else if (response.labels[0].name == "Farming") {
+            emoLabel1 = emoji(emo.Farming);
+          } else if (response.labels[0].name == "Friendly Wars") {
+            emoLabel1 = emoji(emo.FriendlyWars);
+          } else if (response.labels[0].name == "Friendly") {
+            emoLabel1 = emoji(emo.Friendly);
+          } else if (response.labels[0].name == "Newbie") {
+            emoLabel1 = emoji(emo.Newbie);
+          } else if (response.labels[0].name == "Talkative") {
+            emoLabel1 = emoji(emo.Talkative);
+          } else if (response.labels[0].name == "Teacher") {
+            emoLabel1 = emoji(emo.Teacher);
+          } else if (response.labels[0].name == "Trophy Pushing") {
+            emoLabel1 = emoji(emo.TrophyPushing);
+          } else if (response.labels[0].name == "Veteran") {
+            emoLabel1 = emoji(emo.Veteran);
+          } else {
+            emoLabel1 = ":black_medium_square:";
+          }
+          var emoLabel2;
+          if (response.labels[1].name == "Active Daily") {
+            emoLabel2 = emoji(emo.ActiveDaily);
+          } else if (response.labels[1].name == "Active Donator") {
+            emoLabel2 = emoji(emo.ActiveDonator);
+          } else if (response.labels[1].name == "Amateur Attacker") {
+            emoLabel2 = emoji(emo.AmateurAttacker);
+          } else if (response.labels[1].name == "Hungry Learner") {
+            emoLabel2 = emoji(emo.AngryLearner);
+          } else if (response.labels[1].name == "Base Designing") {
+            emoLabel2 = emoji(emo.BaseDesigning);
+          } else if (response.labels[1].name == "Builder Base") {
+            emoLabel2 = emoji(emo.BuilderBase);
+          } else if (response.labels[1].name == "Clan Capital") {
+            emoLabel2 = emoji(emo.ClanCapital);
+          } else if (response.labels[1].name == "Clan Games") {
+            emoLabel2 = emoji(emo.ClanGames);
+          } else if (response.labels[1].name == "Clan Wars") {
+            emoLabel2 = emoji(emo.ClanWars);
+          } else if (response.labels[1].name == "ClanWarLeague") {
+            emoLabel2 = emoji(emo.ClanWarLeague);
+          } else if (response.labels[1].name == "Competitive") {
+            emoLabel2 = emoji(emo.Competitive);
+          } else if (response.labels[1].name == "Farming") {
+            emoLabel2 = emoji(emo.Farming);
+          } else if (response.labels[1].name == "Friendly Wars") {
+            emoLabel2 = emoji(emo.FriendlyWars);
+          } else if (response.labels[1].name == "Friendly") {
+            emoLabel2 = emoji(emo.Friendly);
+          } else if (response.labels[1].name == "Newbie") {
+            emoLabel2 = emoji(emo.Newbie);
+          } else if (response.labels[1].name == "Talkative") {
+            emoLabel2 = emoji(emo.Talkative);
+          } else if (response.labels[1].name == "Teacher") {
+            emoLabel2 = emoji(emo.Teacher);
+          } else if (response.labels[1].name == "Trophy Pushing") {
+            emoLabel2 = emoji(emo.TrophyPushing);
+          } else if (response.labels[1].name == "Veteran") {
+            emoLabel2 = emoji(emo.Veteran);
+          } else {
+            emoLabel2 = ":black_medium_square:";
+          }
+          var emoLabel3;
+          if (response.labels[2].name == "Active Daily") {
+            emoLabel3 = emoji(emo.ActiveDaily);
+          } else if (response.labels[2].name == "Active Donator") {
+            emoLabel3 = emoji(emo.ActiveDonator);
+          } else if (response.labels[2].name == "Amateur Attacker") {
+            emoLabel3 = emoji(emo.AmateurAttacker);
+          } else if (response.labels[2].name == "Hungry Learner") {
+            emoLabel3 = emoji(emo.AngryLearner);
+          } else if (response.labels[2].name == "Base Designing") {
+            emoLabel3 = emoji(emo.BaseDesigning);
+          } else if (response.labels[2].name == "Builder Base") {
+            emoLabel3 = emoji(emo.BuilderBase);
+          } else if (response.labels[2].name == "Clan Capital") {
+            emoLabel3 = emoji(emo.ClanCapital);
+          } else if (response.labels[2].name == "Clan Games") {
+            emoLabel3 = emoji(emo.ClanGames);
+          } else if (response.labels[2].name == "Clan Wars") {
+            emoLabel3 = emoji(emo.ClanWars);
+          } else if (response.labels[2].name == "ClanWarLeague") {
+            emoLabel3 = emoji(emo.ClanWarLeague);
+          } else if (response.labels[2].name == "Competitive") {
+            emoLabel3 = emoji(emo.Competitive);
+          } else if (response.labels[2].name == "Farming") {
+            emoLabel3 = emoji(emo.Farming);
+          } else if (response.labels[2].name == "Friendly Wars") {
+            emoLabel3 = emoji(emo.FriendlyWars);
+          } else if (response.labels[2].name == "Friendly") {
+            emoLabel3 = emoji(emo.Friendly);
+          } else if (response.labels[2].name == "Newbie") {
+            emoLabel3 = emoji(emo.Newbie);
+          } else if (response.labels[2].name == "Talkative") {
+            emoLabel3 = emoji(emo.Talkative);
+          } else if (response.labels[2].name == "Teacher") {
+            emoLabel3 = emoji(emo.Teacher);
+          } else if (response.labels[2].name == "Trophy Pushing") {
+            emoLabel3 = emoji(emo.TrophyPushing);
+          } else if (response.labels[2].name == "Veteran") {
+            emoLabel3 = emoji(emo.Veteran);
+          } else {
+            emoLabel3 = ":black_medium_square:";
+          }
         }
+
         if (response.heroes[0] != undefined || response.heroes[0] != null) {
           if (response.heroes[0].village === "home") {
             var king = response.heroes[0].level;
@@ -244,14 +408,12 @@ module.exports = {
         }
 
         e.setTitle("**" + response.name + "**");
-        e.setThumbnail(`${randomLink()}`);
-        e.setDescription(
-          "**[Player Profile](https://link.clashofclans.com/?action=OpenPlayerProfile&tag=%" +
-            response.tag.replace("#", "23") +
-            ")  |  Tag : `" +
-            response.tag +
-            "`**"
+        e.setURL(
+          "https://link.clashofclans.com/?action=OpenPlayerProfile&tag=%" +
+            response.tag.replace("#", "23")
         );
+        e.setThumbnail(`${randomLink()}`);
+        e.setDescription("Tag : `" + response.tag + "`");
         e.setFooter({
           text: "Clash of Base - Developped by " + config.dev,
           iconURL: client.user.displayAvatarURL(),
@@ -264,72 +426,109 @@ module.exports = {
           },
           {
             name: "Builder Hall :",
-            value: bh + " ",
+            value: bhemo,
             inline: true,
           },
           {
             name: "Levels :",
-            value: response.expLevel + " ",
+            value: emoji(emo.xp) + " " + response.expLevel,
             inline: true,
           },
           {
             name: "War stars :",
-            value: response.warStars + " ",
+            value: emoji(emo.star) + " " + response.warStars + " ",
             inline: true,
           },
           {
             name: "Donation :",
-            value: response.donations + " ",
+            value:
+              emoji(emo.greenup) +
+              response.donations +
+              "\n" +
+              emoji(emo.reddown) +
+              response.donationsReceived +
+              "\n" +
+              `${equity}` +
+              " ",
             inline: true,
           },
           {
             name: "Successful Attacks :",
-            value: response.attackWins + " ",
+            value: emoji(emo.epee) + " " + response.attackWins,
             inline: true,
           },
           {
             name: "Clan :",
-            value: clan + " ",
+            value: clan,
             inline: true,
           },
           {
             name: "Th Trophy :",
-            value: response.trophies + "\n" + response.bestTrophies,
+            value:
+              emoji(emo.thtrophy) +
+              " " +
+              response.trophies +
+              "\n" +
+              emoji(emo.thtrophy) +
+              " " +
+              response.bestTrophies,
             inline: true,
           },
           {
             name: "Bh Trophy  :",
-            value: response.versusTrophies + " ",
+            value:
+              emoji(emo.bhtrophy) +
+              " " +
+              response.versusTrophies +
+              "\n" +
+              emoji(emo.bhtrophy) +
+              " " +
+              response.bestVersusTrophies,
             inline: true,
           },
           {
             name: "League :",
-            value: ligue,
+            value: ligue + " ",
             inline: true,
           },
           {
             name: "Hero :",
             value:
+              emoji(emo.king) +
+              " **" +
               king +
-              "\n" +
+              " " +
+              emoji(emo.queen) +
+              " " +
               queen +
-              "\n" +
+              " " +
+              emoji(emo.warden) +
+              " " +
               gardien +
-              "\n" +
+              " " +
+              emoji(emo.champ) +
+              " " +
               championne +
-              "\n" +
-              mdc,
-            inline: true,
+              "**\n" +
+              emoji(emo.mdc) +
+              " **" +
+              mdc +
+              "**",
+            inline: false,
           },
           {
             name: "Labels :",
-            value: labels + " ",
-            inline: true,
+            value: emoLabel1 + emoLabel2 + emoLabel3 + " ",
+            inline: false,
           },
           {
             name: "Clan Capitals contributions",
-            value: response.clanCapitalContributions + " ",
-            inline: true,
+            value:
+              emoji(emo.jewels) +
+              "**" +
+              response.clanCapitalContributions +
+              "**",
+            inline: false,
           }
         );
 
