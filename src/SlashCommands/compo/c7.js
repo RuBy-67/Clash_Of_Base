@@ -1,4 +1,4 @@
-const { MessageEmbed } = require("discord.js");
+/* const { MessageEmbed } = require("discord.js");
 const emo = require(`../../jsons/emoji.json`);
 
 module.exports = {
@@ -52,7 +52,7 @@ module.exports = {
     const code = await interaction.options.getString("liste");
     const embed = new MessageEmbed();
 
-    if (code == "") {
+    if (code == "compo1") {
       return interaction.reply({ embeds: [embed] });
     }
 
@@ -84,4 +84,4 @@ module.exports = {
 
     return interaction.reply({ embeds: [embed] });
   },
-};
+};*/

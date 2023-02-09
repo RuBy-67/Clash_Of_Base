@@ -11,7 +11,7 @@ module.exports = {
     }
     const embed = new MessageEmbed()
       .setTitle("Help Menu")
-      .setDescription("")
+      .setDescription("description")
       .addFields(
         {
           name:"h",

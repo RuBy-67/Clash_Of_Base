@@ -2,7 +2,7 @@ const { MessageEmbed } = require("discord.js");
 const emo = require(`../../jsons/emoji.json`);
 
 module.exports = {
-  name: "helpA",
+  name: "helpa",
   description: "Shows the help Admin page!",
   userPerms: ["ADMINISTRATOR"],
   options: null,
@@ -12,7 +12,7 @@ module.exports = {
     }
     const embed = new MessageEmbed()
       .setTitle("Help Menu")
-      .setDescription("")
+      .setDescription("description")
       .addFields(
         {
           name: "h",

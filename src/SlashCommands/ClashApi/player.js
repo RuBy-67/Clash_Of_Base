@@ -1,9 +1,9 @@
-const emo = require("/src/jsons/emoji.json");
-const config = require("/src/jsons/config.json");
+const emo = require("../../jsons/emoji.json");
+const config = require(`../../jsons/config.json`);
 const Discord = require("discord.js");
-const clashAPI = require("clash-of-clans-api");
-let api_client = clashAPI({
-  token: clashAPI,
+const CoC = require("clash-of-clans-api");
+const api_client = new CoC({
+  token: config.ClashApi,
 });
 module.exports = {
   name: "player",
@@ -21,6 +21,34 @@ module.exports = {
     function emoji(id) {
       return client.emojis.cache.get(id).toString();
     }
+    function randomLink() {
+      const links = [
+        "https://cdn.discordapp.com/attachments/1071177069985284292/1073020978935906404/RuBy_an_archer_inspired_by_the_clash_of_clans_universe_with_pin_8e5d04fe-e1bb-401b-bb73-31f5754356b7.png",
+        "https://cdn.discordapp.com/attachments/1071177069985284292/1073020978596159538/DALLE_2023-02-09_00.08.20_-_complete_this_with_black_hair_in_wind_and_small_dead_head_in_their_hair_.png",
+        "https://cdn.discordapp.com/attachments/1071177069985284292/1073020979212718080/DALLE_2023-02-09_00.04.28_-_complete_this_image_with_red_hair_.png",
+        "https://cdn.discordapp.com/attachments/1071177069985284292/1073020979560857630/DALLE_2023-02-09_00.06.14_-_complete_this_image_with_blue_hair_in_wind_.png",
+        "https://cdn.discordapp.com/attachments/1071177069985284292/1073028843260088340/DALLE_2023-02-09_00.44.15_-_Skull_.png",
+        "https://cdn.discordapp.com/attachments/1071177069985284292/1073028843503374416/DALLE_2023-02-09_00.45.59_-_Cyborg_.png",
+        "https://cdn.discordapp.com/attachments/1071177069985284292/1073028843763412992/DALLE_2023-02-09_00.47.35_-_a_Robot_.png",
+        "https://cdn.discordapp.com/attachments/1071177069985284292/1073028844124131409/DALLE_2023-02-09_00.47.50_-_a_Robot_.png",
+      ];
+
+      const randomNumber = Math.random() * 100;
+      if (randomNumber <= 20) {
+        return links[0];
+      } else {
+        const frequency = 2 + (15 - 2) * Math.random();
+        if (randomNumber <= 20 + ((100 - 20) * frequency) / 100) {
+          const index = Math.floor(
+            ((randomNumber - 20) / (100 - 20)) * (links.length - 1) + 1
+          );
+          return links[index];
+        } else {
+          return links[0];
+        }
+      }
+    }
+
     const tag = await interaction.options.getString("tag");
     let error = new Discord.MessageEmbed()
       // Message D'erreurs
@@ -28,7 +56,7 @@ module.exports = {
         "Error - Please provide a correct Tag\nTry :",
         "`/player`"
       )
-      .setColor("#fb2929")
+      .setColor(config.color_error)
       .setFooter({
         text: "ClashOfBase",
         iconURL: client.user.displayAvatarURL(),
@@ -43,16 +71,81 @@ module.exports = {
     ) {
       return interaction.reply({ embeds: [error] });
     }
-
+    let e = new Discord.MessageEmbed();
     api_client
       .playerByTag(tag)
       .catch((err) => {
         interaction.reply({ embeds: [error] });
       })
       .then((response) => {
-        if (response.league != undefined || response.league != null)
-          var league = response.league.name;
-        else league = "Unclassified";
+        if (response.league != undefined || response.league != null) {
+          var ligue;
+          if (response.league.name == "Legend League") {
+            ligue = emoji(emo.legend) + "|" + response.league.name;
+          } else if (response.league.name == "Bronze League") {
+            ligue = emoji(emo.bronze) + "|" + response.league.name;
+          } else if (response.league.name == "Silver League") {
+            ligue = emoji(emo.silver) + "|" + response.league.name;
+          } else if (response.league.name == "Gold League") {
+            ligue = emoji(emo.gold) + "|" + response.league.name;
+          } else if (response.league.name == "Crystal League") {
+            ligue = emoji(emo.cristal) + "|" + response.league.name;
+          } else if (response.league.name == "Master League") {
+            ligue = emoji(emo.master) + "|" + response.league.name;
+          } else if (response.league.name == "Champion League") {
+            ligue = emoji(emo.champion) + "|" + response.league.name;
+          } else if (response.league.name == "Titan League") {
+            ligue = emoji(emo.titan) + "|" + response.league.name;
+          }
+        } else ligue = emoji(emo.no_league) + "Not Classed";
+        var town;
+        if (response.townHallLevel == "1") {
+          town = emoji(emo.th1) + response.townHallLevel;
+          e.setColor("#FFD500");
+        } else if (response.townHallLevel == "2") {
+          town = emoji(emo.th2) + response.townHallLevel;
+          e.setColor("#FFD500");
+        } else if (response.townHallLevel == "3") {
+          e.setColor("#FFD500");
+          town = emoji(emo.th3) + response.townHallLevel;
+        } else if (response.townHallLevel == "4") {
+          e.setColor("#FFD500");
+          town = emoji(emo.th4) + response.townHallLevel;
+        } else if (response.townHallLevel == "5") {
+          e.setColor("#FFD500");
+          town = emoji(emo.th5) + response.townHallLevel;
+        } else if (response.townHallLevel == "6") {
+          e.setColor("#FFD500");
+          town = emoji(emo.th6) + response.townHallLevel;
+        } else if (response.townHallLevel == "7") {
+          e.setColor("#FFD500");
+          town = emoji(emo.th7) + response.townHallLevel;
+        } else if (response.townHallLevel == "8") {
+          e.setColor("#FFD500");
+          town = emoji(emo.th8) + response.townHallLevel;
+        } else if (response.townHallLevel == "9") {
+          e.setColor("#000000");
+          town = emoji(emo.th9) + response.townHallLevel;
+        } else if (response.townHallLevel == "10") {
+          e.setColor("#FF4C00");
+          town = emoji(emo.th10) + response.townHallLevel;
+        } else if (response.townHallLevel == "11") {
+          e.setColor("#FFFFFF");
+          town = emoji(emo.th11) + response.townHallLevel;
+        } else if (response.townHallLevel == "12") {
+          e.setColor("#0064FF");
+          town = emoji(emo.th12) + response.townHallLevel;
+        } else if (response.townHallLevel == "13") {
+          e.setColor("#05F7E1");
+          town = emoji(emo.th13) + response.townHallLevel;
+        } else if (response.townHallLevel == "14") {
+          e.setColor("#84F705");
+          town = emoji(emo.th14) + response.townHallLevel;
+        } else {
+          town = emoji(emo.th15) + response.townHallLevel;
+          e.setColor("#51B1FF");
+        }
+
         if (
           response.builderHallLevel != undefined ||
           response.builderHallLevel != null
@@ -153,77 +246,96 @@ module.exports = {
           queen = "0";
           king = "0";
         }
-        let e = new Discord.MessageEmbed()
-          .setTitle("**" + response.name + "**")
-          .setDescription(
-            "**[Player Profile](https://link.clashofclans.com/?action=OpenPlayerProfile&tag=%" +
-              response.tag.replace("#", "23") +
-              ")  |  Tag : `" +
-              response.tag +
-              "`**"
-          )
-          .setThumbnail(
-            "https://cdn.discordapp.com/emojis/711510864234152016.png?v=1"
-          )
-          .setColor("RANDOM")
-          .setFooter(
-            "Clash of Base - Developped by " + dev,
-            client.user.displayAvatarURL()
-          )
-          .addField("Town Hall :", response.townHallLevel, true)
-          .addField("Builder Hall :", bh, true)
-          .addField("Levels :", emoji(emo.lvl) + " " + response.expLevel, true)
-          .addField(
-            "War stars :",
-            emoji(emo.star) + " " + response.warStars,
-            true
-          )
-          .addField(
-            "Donation :",
-            emoji(emo.barbs) + " " + response.donations,
-            true
-          )
-          .addField(
-            "Successful Attacks :",
-            emoji(emo.epee) + " " + response.attackWins,
-            true
-          )
-          .addField("Clan :", emoji(emo.bouclier) + clan)
-          .addField(
-            "Th Trophy :",
-            emoji(emo.tr) + " " + response.trophies,
-            true
-          )
-          .addField(
-            "Bh Trophy  :",
-            emoji(emo.vtr) + " " + response.versusTrophies,
-            true
-          )
-          .addField("League :", league)
-          .addField(
-            "Hero :",
-            emoji(emo.roi) +
-              " **" +
+
+        e.setTitle("**" + response.name + "**");
+        e.setThumbnail(`${randomLink()}`);
+        e.setDescription(
+          "**[Player Profile](https://link.clashofclans.com/?action=OpenPlayerProfile&tag=%" +
+            response.tag.replace("#", "23") +
+            ")  |  Tag : `" +
+            response.tag +
+            "`**"
+        );
+        e.setFooter({
+          text: "Clash of Base - Developped by " + config.dev,
+          iconURL: client.user.displayAvatarURL(),
+        });
+        e.addFields(
+          {
+            name: "Town Hall :",
+            value: town,
+            inline: true,
+          },
+          {
+            name: "Builder Hall :",
+            value: bh + " ",
+            inline: true,
+          },
+          {
+            name: "Levels :",
+            value: response.expLevel + " ",
+            inline: true,
+          },
+          {
+            name: "War stars :",
+            value: response.warStars + " ",
+            inline: true,
+          },
+          {
+            name: "Donation :",
+            value: response.donations + " ",
+            inline: true,
+          },
+          {
+            name: "Successful Attacks :",
+            value: response.attackWins + " ",
+            inline: true,
+          },
+          {
+            name: "Clan :",
+            value: clan + " ",
+            inline: true,
+          },
+          {
+            name: "Th Trophy :",
+            value: response.trophies + "\n" + response.bestTrophies,
+            inline: true,
+          },
+          {
+            name: "Bh Trophy  :",
+            value: response.versusTrophies + " ",
+            inline: true,
+          },
+          {
+            name: "League :",
+            value: ligue,
+            inline: true,
+          },
+          {
+            name: "Hero :",
+            value:
               king +
-              "** / 75\n" +
-              emoji(emo.reine) +
-              " **" +
+              "\n" +
               queen +
-              "** / 75\n" +
-              emoji(emo.warden) +
-              " **" +
+              "\n" +
               gardien +
-              "** / 50\n" +
-              emoji(emo.amazone) +
-              " **" +
+              "\n" +
               championne +
-              "** / 20\n" +
-              emoji(emo.machine) +
-              " **" +
-              mdc +
-              "** / 30"
-          )
-          .addField("Labels :", emoji(emo.right) + " " + labels, true);
+              "\n" +
+              mdc,
+            inline: true,
+          },
+          {
+            name: "Labels :",
+            value: labels + " ",
+            inline: true,
+          },
+          {
+            name: "Clan Capitals contributions",
+            value: response.clanCapitalContributions + " ",
+            inline: true,
+          }
+        );
 
         return interaction.reply({ embeds: [e] });
       });
