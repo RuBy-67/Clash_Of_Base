@@ -22,6 +22,7 @@ module.exports = {
       return client.emojis.cache.get(id).toString();
     }
     function randomLink() {
+      //Thumbail aléatoire la première (pdp originale) a 65% de chance de sortir les autres on  35% / le nombre d'image)
       const links = [
         "https://cdn.discordapp.com/attachments/1071177069985284292/1073020978935906404/RuBy_an_archer_inspired_by_the_clash_of_clans_universe_with_pin_8e5d04fe-e1bb-401b-bb73-31f5754356b7.png",
         "https://cdn.discordapp.com/attachments/1071177069985284292/1073020978596159538/DALLE_2023-02-09_00.08.20_-_complete_this_with_black_hair_in_wind_and_small_dead_head_in_their_hair_.png",
@@ -34,18 +35,13 @@ module.exports = {
       ];
 
       const randomNumber = Math.random() * 100;
-      if (randomNumber <= 20) {
+      if (randomNumber <= 65) {
         return links[0];
       } else {
-        const frequency = 2 + (15 - 2) * Math.random();
-        if (randomNumber <= 20 + ((100 - 20) * frequency) / 100) {
-          const index = Math.floor(
-            ((randomNumber - 20) / (100 - 20)) * (links.length - 1) + 1
-          );
-          return links[index];
-        } else {
-          return links[0];
-        }
+        const index = Math.floor(
+          ((randomNumber - 65) / (100 - 65)) * (links.length - 1) + 1
+        );
+        return links[index];
       }
     }
 
