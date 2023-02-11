@@ -41,15 +41,23 @@ process.on("unhandledRejection", (reason, promise) => {
   console.log(
     "[FATAL] Possibly Unhandled Rejection at: Promise ",
     promise,
-    
+
     " reason: ",
     reason.message
   );
 
   const rejectionembed = new MessageEmbed()
     .setTitle("Unhandled Promise Rejection")
-    .addField("Promise", `${promise}`)
-    .addField("Reason", `${reason.message}`)
+    .addFields(
+      {
+        name: "reason",
+        value: `${reason.message}`,
+      },
+      {
+        name: "promise",
+        value: `${promise}`,
+      }
+    )
     .setColor("RED");
 });
 

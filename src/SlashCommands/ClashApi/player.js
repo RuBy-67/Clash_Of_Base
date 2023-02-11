@@ -435,14 +435,19 @@ module.exports = {
             inline: true,
           },
           {
-            name: "Clan Roles :",
-            value: response.role,
+            name: "Successful Attacks :",
+            value: emoji(emo.epee) + " " + response.attackWins,
             inline: true,
           },
           {
             name: "War stars :",
             value: emoji(emo.star) + " " + response.warStars + " ",
             inline: true,
+          },
+          {
+            name: "Clan :",
+            value: clan + "\nRole : **" + response.role + "**",
+            inline: false,
           },
           {
             name: "Donation :",
@@ -453,22 +458,13 @@ module.exports = {
               emoji(emo.reddown) +
               response.donationsReceived +
               "\n" +
-              `${equity}` +
-              " ",
-            inline: true,
+              `Ratio: **${equity}**` +
+              " " +
+              `\nTotal: **${response.achievements[14].value}**`,
+            inline: false,
           },
           {
-            name: "Successful Attacks :",
-            value: emoji(emo.epee) + " " + response.attackWins,
-            inline: true,
-          },
-          {
-            name: "Clan :",
-            value: clan,
-            inline: true,
-          },
-          {
-            name: "Th Trophy :",
+            name: "Th Trophy :" + ligue,
             value:
               emoji(emo.thtrophy) +
               " " +
@@ -489,11 +485,6 @@ module.exports = {
               emoji(emo.bhtrophy) +
               " " +
               response.bestVersusTrophies,
-            inline: true,
-          },
-          {
-            name: "League :",
-            value: ligue + " ",
             inline: true,
           },
           {
@@ -523,16 +514,13 @@ module.exports = {
           },
           {
             name: "Labels :",
-            value: emoLabel1 + emoLabel2 + emoLabel3 + " ",
+            value: emoLabel1 + " " + emoLabel2 + " " + emoLabel3,
             inline: false,
           },
           {
-            name: "Clan Capitals contributions",
+            name: "Clan capitals contributions",
             value:
-              emoji(emo.jewels) +
-              "**" +
-              response.clanCapitalContributions +
-              "**",
+              emoji(emo.jewels) + " " + response.clanCapitalContributions + " ",
             inline: false,
           }
         );

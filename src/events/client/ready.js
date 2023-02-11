@@ -1,6 +1,7 @@
 const chalk = require("chalk");
+const config = require("clash-of-clans-api/config");
 const { Client } = require("discord.js");
-const { activityInterval } = require("../../jsons/config.json");
+const { activityInterval, dev } = require("../../jsons/config.json");
 
 module.exports = (client) => {
   client.user.setPresence({ status: "online" });
@@ -32,7 +33,7 @@ module.exports = (client) => {
   async function updateActivity(client) {
     const activities = [
       `/help | Watching Clash API`,
-      `Created by RuBy#0822`,
+      `Created by ${dev}`,
       `look ${allMembers.size} members`,
       `/player ${client.guilds.cache.size} servers `,
       `/clan ${client.channels.cache.size} channels `,

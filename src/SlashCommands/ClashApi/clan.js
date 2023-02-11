@@ -406,8 +406,7 @@ module.exports = {
         embed.setTitle("**" + response.name + "**");
         embed.setURL(
           "https://link.clashofclans.com/fr?action=OpenClanProfile&tag" +
-            response.tag.replace("#", "=") +
-            ") "
+            response.tag.replace("#", "=")
         );
         embed.setThumbnail(`${randomLink()}`);
         embed.setColor(config.colorPink);
@@ -422,7 +421,7 @@ module.exports = {
             ctype2 +
             "` `" +
             response.tag +
-            "`\n" +
+            "`\n\n" +
             desc
         );
         embed.addFields(
@@ -473,11 +472,6 @@ module.exports = {
             inline: false,
           },
           {
-            name: "War Frequency :",
-            value: emoji(emo.epee) + " " + fdg2,
-            inline: true,
-          },
-          {
             name: "War Stats",
             value:
               "Victory : " +
@@ -487,8 +481,13 @@ module.exports = {
             inline: true,
           },
           {
+            name: "War Frequency :",
+            value: emoji(emo.epee) + " " + fdg2,
+            inline: true,
+          },
+          {
             name: "League :",
-            value: "CWL :" + ligue + "\n ClanCapitals :" + capligue,
+            value: "CWL :" + ligue + "\nClanCapitals :" + capligue,
             inline: false,
           }
         );
