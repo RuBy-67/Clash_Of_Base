@@ -22,7 +22,7 @@ module.exports = {
       return client.emojis.cache.get(id).toString();
     }
     function randomLink() {
-      //Thumbail aléatoire la première (pdp originale) a 65% de chance de sortir les autres on  35% / le nombre d'image)
+      //Thumbail aléatoire la première (pdp originale) a 75% de chance de sortir les autres on  25% / le nombre d'image)
       const links = [
         "https://cdn.discordapp.com/attachments/1071177069985284292/1073020978935906404/RuBy_an_archer_inspired_by_the_clash_of_clans_universe_with_pin_8e5d04fe-e1bb-401b-bb73-31f5754356b7.png",
         "https://cdn.discordapp.com/attachments/1069329186365394995/1073335784796594316/DALLE_2023-02-09_00.08.20_-_complete_this_with_black_hair_in_wind_and_small_dead_head_in_their_hair_.png",
@@ -35,11 +35,11 @@ module.exports = {
       ];
 
       const randomNumber = Math.random() * 100;
-      if (randomNumber <= 65) {
+      if (randomNumber <= 75) {
         return links[0];
       } else {
         const index = Math.floor(
-          ((randomNumber - 65) / (100 - 65)) * (links.length - 1) + 1
+          ((randomNumber - 75) / (100 - 75)) * (links.length - 1) + 1
         );
         return links[index];
       }
@@ -74,46 +74,74 @@ module.exports = {
         interaction.reply({ embeds: [error] });
       })
       .then((response) => {
+        const values = [
+          4, 9, 14, 19, 24, 29, 34, 39, 44, 49, 54, 59, 64, 69, 74, 79, 84, 89,
+          94, 99,
+        ];
         const embed = new Discord.MessageEmbed();
-        var descriptiontroupe;
-        var descriptionmdo;
+        var descriptiontroupe = "";
+        var descriptionmdo = "";
         for (let i = 0; i < response.troops.length; i++) {
           var nom = `${response.troops[i].name}`;
-          console.log(`${response.troops[i].name}`);
-          console.log(nom);
           const emoj = emoji(emo[nom]);
           const level = response.troops[i].level;
+          const max = response.troops[i].maxLevel;
           if (response.troops[i].village == "builderBase") {
-            descriptionmdo += `${emoj}**-**${level}`;
-          } else descriptiontroupe += `${emoj}**-**${level}`;
-            
+            descriptionmdo += `${emoj} ${level} /${max}`;
+            if (values.includes(i)) {
+              descriptionmdo += "\n";
+            }
+          } else {
+            descriptiontroupe += `${emoj} ${level} /${max}`;
+            if (values.includes(i)) {
+              descriptiontroupe += "\n";
+            }
+          }
         }
-        var descriptionspell;
+        var descriptionspell = "";
         for (let i = 0; i < response.spells.length; i++) {
           var nom = `${response.spells[i].name}`;
-          console.log(`${response.spells[i].name}`);
-          console.log(nom);
           const emoj = emoji(emo[nom]);
           const level = response.spells[i].level;
-           descriptionspell += `${emoj}**-**${level}`;
+          const max = response.spells[i].maxLevel;
+          descriptionspell += `${emoj} ${level} /${max}`;
+          if (values.includes(i)) {
+            descriptionspell += "\n";
+          }
         }
-        var descriptionshero;
+        var descriptionshero = "";
         for (let i = 0; i < response.heroes.length; i++) {
+          if (response.heroes[i].name === undefined) continue;
           var nom = `${response.heroes[i].name}`;
-          console.log(`${response.heroes[i].name}`);
-          console.log(nom);
           const emoj = emoji(emo[nom]);
           const level = response.heroes[i].level;
           const max = response.heroes[i].maxLevel;
-          descriptionshero += `${emoj}**-**${level}`;
+          descriptionshero += `${emoj} ${level} /${max}`;
+          if (i === 1) {
+            descriptionshero += "\n";
+          }
         }
-        embed.setDescription(
-          "**Troops :** \n" +
-            descriptiontroupe +
-            "**\n\nSpell :**\n" +
-            descriptionspell +
-            "**\n\nHero :**\n" +
-            descriptionshero
+        embed.setTitle("**" + response.name + " - Advanced**");
+        embed.setURL(
+          "https://link.clashofclans.com/?action=OpenPlayerProfile&tag=%" +
+            response.tag.replace("#", "23")
+        );
+        embed.setColor(config.colorPink);
+        embed.setThumbnail(`${randomLink()}`);
+        embed.setDescription("**Troops :**\n" + descriptiontroupe);
+        embed.addFields(
+          {
+            name: "Spell :",
+            value: descriptionspell,
+          },
+          {
+            name: "Troops Builder Base:",
+            value: descriptionmdo,
+          },
+          {
+            name: "Hero :",
+            value: descriptionshero,
+          }
         );
         return interaction.reply({ embeds: [embed] });
       });
