@@ -44,7 +44,10 @@ module.exports = {
         return links[index];
       }
     }
-
+    const values = [
+      4, 9, 14, 19, 24, 29, 34, 39, 44, 49, 54, 59, 64, 69, 74, 79, 84, 89, 94,
+      99,
+    ];
     const tag = await interaction.options.getString("tag");
     let error = new Discord.MessageEmbed()
       // Message D'erreurs
@@ -74,10 +77,6 @@ module.exports = {
         interaction.reply({ embeds: [error] });
       })
       .then((response) => {
-        const values = [
-          4, 9, 14, 19, 24, 29, 34, 39, 44, 49, 54, 59, 64, 69, 74, 79, 84, 89,
-          94, 99,
-        ];
         const embed = new Discord.MessageEmbed();
         var descriptiontroupe = "";
         var descriptionmdo = "";
