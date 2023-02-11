@@ -21,32 +21,9 @@ module.exports = {
     function emoji(id) {
       return client.emojis.cache.get(id).toString();
     }
-    function randomLink() {
-      //Thumbail aléatoire la première (pdp originale) a 75% de chance de sortir les autres on  25% / le nombre d'image)
-      const links = [
-        "https://cdn.discordapp.com/attachments/1071177069985284292/1073020978935906404/RuBy_an_archer_inspired_by_the_clash_of_clans_universe_with_pin_8e5d04fe-e1bb-401b-bb73-31f5754356b7.png",
-        "https://cdn.discordapp.com/attachments/1069329186365394995/1073335784796594316/DALLE_2023-02-09_00.08.20_-_complete_this_with_black_hair_in_wind_and_small_dead_head_in_their_hair_.png",
-        "https://cdn.discordapp.com/attachments/1069329186365394995/1073335785090199552/DALLE_2023-02-09_00.44.15_-_Skull_.png",
-        "https://cdn.discordapp.com/attachments/1069329186365394995/1073335785559957554/DALLE_2023-02-09_00.04.28_-_complete_this_image_with_red_hair_.png",
-        "https://cdn.discordapp.com/attachments/1069329186365394995/1073335785929060433/DALLE_2023-02-09_00.06.14_-_complete_this_image_with_blue_hair_in_wind_.png",
-        "https://cdn.discordapp.com/attachments/1069329186365394995/1073335786235252876/DALLE_2023-02-09_00.47.35_-_a_Robot_.png",
-        "https://cdn.discordapp.com/attachments/1069329186365394995/1073335786545623112/DALLE_2023-02-09_00.47.50_-_a_Robot_.png",
-        "https://cdn.discordapp.com/attachments/1069329186365394995/1073335787090890762/DALLE_2023-02-09_00.45.59_-_Cyborg_.png",
-      ];
-
-      const randomNumber = Math.random() * 100;
-      if (randomNumber <= 75) {
-        return links[0];
-      } else {
-        const index = Math.floor(
-          ((randomNumber - 75) / (100 - 75)) * (links.length - 1) + 1
-        );
-        return links[index];
-      }
-    }
     const values = [
-      4, 9, 14, 19, 24, 29, 34, 39, 44, 49, 54, 59, 64, 69, 74, 79, 84, 89, 94,
-      99,
+      3, 7, 11, 15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75,
+      79, 83, 87, 91, 95, 99,
     ];
     const tag = await interaction.options.getString("tag");
     let error = new Discord.MessageEmbed()
@@ -120,13 +97,60 @@ module.exports = {
             descriptionshero += "\n";
           }
         }
-        embed.setTitle("**" + response.name + " - Advanced**");
+        var town;
+        switch (response.townHallLevel) {
+          case 1:
+            town = emoji(emo.th1);
+            break;
+          case 2:
+            town = emoji(emo.th2);
+            break;
+          case 3:
+            town = emoji(emo.th3);
+            break;
+          case 4:
+            town = emoji(emo.th4);
+            break;
+          case 5:
+            town = emoji(emo.th5);
+            break;
+          case 6:
+            town = emoji(emo.th6);
+            break;
+          case 7:
+            town = emoji(emo.th7);
+            break;
+          case 8:
+            town = emoji(emo.th8);
+            break;
+          case 9:
+            town = emoji(emo.th9);
+            break;
+          case 10:
+            town = emoji(emo.th10);
+            break;
+          case 11:
+            town = emoji(emo.th11);
+            break;
+          case 12:
+            town = emoji(emo.th12);
+            break;
+          case 13:
+            town = emoji(emo.th13);
+            break;
+          case 14:
+            town = emoji(emo.th14);
+            break;
+          default:
+            town = emoji(emo.th15);
+            break;
+        }
+        embed.setTitle(town + " **" + response.name + "**");
         embed.setURL(
           "https://link.clashofclans.com/?action=OpenPlayerProfile&tag=%" +
             response.tag.replace("#", "23")
         );
         embed.setColor(config.colorPink);
-        embed.setThumbnail(`${randomLink()}`);
         embed.setDescription("**Troops :**\n" + descriptiontroupe);
         embed.addFields(
           {
