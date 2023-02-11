@@ -78,119 +78,173 @@ module.exports = {
 
         if (response.league != undefined || response.league != null) {
           var ligue;
-          if (response.league.id == 29000022) {
-            ligue = emoji(emo.legend);
-          } else if (response.league.id == 29000001) {
-            ligue = emoji(emo.bronze1);
-          } else if (response.league.id == 29000002) {
-            ligue = emoji(emo.bronze2);
-          } else if (response.league.id == 29000003) {
-            ligue = emoji(emo.bronze3);
-          } else if (response.league.id == 29000004) {
-            ligue = emoji(emo.silver3);
-          } else if (response.league.id == 29000005) {
-            ligue = emoji(emo.silver2);
-          } else if (response.league.id == 29000006) {
-            ligue = emoji(emo.silver1);
-          } else if (response.league.id == 29000007) {
-            ligue = emoji(emo.gold3);
-          } else if (response.league.id == 29000008) {
-            ligue = emoji(emo.gold2);
-          } else if (response.league.id == 29000009) {
-            ligue = emoji(emo.gold1);
-          } else if (response.league.id == 29000010) {
-            ligue = emoji(emo.cristal3);
-          } else if (response.league.id == 29000011) {
-            ligue = emoji(emo.cristal2);
-          } else if (response.league.id == 29000012) {
-            ligue = emoji(emo.cristal1);
-          } else if (response.league.id == 29000013) {
-            ligue = emoji(emo.master3);
-          } else if (response.league.id == 29000014) {
-            ligue = emoji(emo.master2);
-          } else if (response.league.id == 29000015) {
-            ligue = emoji(emo.master1);
-          } else if (response.league.id == 29000016) {
-            ligue = emoji(emo.champ3);
-          } else if (response.league.id == 29000017) {
-            ligue = emoji(emo.champ2);
-          } else if (response.league.id == 29000018) {
-            ligue = emoji(emo.champ1);
-          } else if (response.league.id == 29000019) {
-            ligue = emoji(emo.titan3);
-          } else if (response.league.id == 29000020) {
-            ligue = emoji(emo.titan2);
-          } else if (response.league.id == 29000021) {
-            ligue = emoji(emo.titan3);
-          } else ligue = emoji(emo.no_league);
+          switch (response.league.id) {
+            case  29000022:
+              ligue = emoji(emo.legend);
+              break;
+            case  29000001:
+              ligue = emoji(emo.bronze1);
+              break;
+            case  29000002:
+              ligue = emoji(emo.bronze2);
+              break;
+            case  29000003:
+              ligue = emoji(emo.bronze3);
+              break;
+            case  29000004:
+              ligue = emoji(emo.silver3);
+              break;
+            case  29000005:
+              ligue = emoji(emo.silver2);
+              break;
+            case  29000006:
+              ligue = emoji(emo.silver1);
+              break;
+            case  29000007:
+              ligue = emoji(emo.gold3);
+              break;
+            case  29000008:
+              ligue = emoji(emo.gold2);
+              break;
+            case  29000009:
+              ligue = emoji(emo.gold1);
+              break;
+            case  29000010:
+              ligue = emoji(emo.cristal3);
+              break;
+            case  29000011:
+              ligue = emoji(emo.cristal2);
+              break;
+            case  29000012:
+              ligue = emoji(emo.cristal1);
+              break;
+            case  29000013:
+              ligue = emoji(emo.master3);
+              break;
+            case  29000014:
+              ligue = emoji(emo.master2);
+              break;
+            case  29000015:
+              ligue = emoji(emo.master1);
+              break;
+            case  29000016:
+              ligue = emoji(emo.champ3);
+              break;
+            case  29000017:
+              ligue = emoji(emo.champ2);
+              break;
+            case  29000018:
+              ligue = emoji(emo.champ1);
+              break;
+            case  29000019:
+              ligue = emoji(emo.titan3);
+              break;
+            case  29000020:
+              ligue = emoji(emo.titan2);
+              break;
+            case  29000021:
+              ligue = emoji(emo.titan3);
+              break;
+            default:
+              ligue = emoji(emo.no_league);
+          }
         } else ligue = emoji(emo.no_league);
+
         var town;
-        if (response.townHallLevel == "1") {
-          town = emoji(emo.th1) + " " + response.townHallLevel;
-          e.setColor("#FFD500");
-        } else if (response.townHallLevel == "2") {
-          town = emoji(emo.th2) + " " + response.townHallLevel;
-          e.setColor("#FFD500");
-        } else if (response.townHallLevel == "3") {
-          e.setColor("#FFD500");
-          town = emoji(emo.th3) + " " + response.townHallLevel;
-        } else if (response.townHallLevel == "4") {
-          e.setColor("#FFD500");
-          town = emoji(emo.th4) + " " + response.townHallLevel;
-        } else if (response.townHallLevel == "5") {
-          e.setColor("#FFD500");
-          town = emoji(emo.th5) + " " + response.townHallLevel;
-        } else if (response.townHallLevel == "6") {
-          e.setColor("#FFD500");
-          town = emoji(emo.th6) + " " + response.townHallLevel;
-        } else if (response.townHallLevel == "7") {
-          e.setColor("#FFD500");
-          town = emoji(emo.th7) + " " + response.townHallLevel;
-        } else if (response.townHallLevel == "8") {
-          e.setColor("#FFD500");
-          town = emoji(emo.th8) + " " + response.townHallLevel;
-        } else if (response.townHallLevel == "9") {
-          e.setColor("#000000");
-          town = emoji(emo.th9) + " " + response.townHallLevel;
-        } else if (response.townHallLevel == "10") {
-          e.setColor("#FF4C00");
-          town = emoji(emo.th10) + " " + response.townHallLevel;
-        } else if (response.townHallLevel == "11") {
-          e.setColor("#FFFFFF");
-          town = emoji(emo.th11) + " " + response.townHallLevel;
-        } else if (response.townHallLevel == "12") {
-          e.setColor("#0064FF");
-          town = emoji(emo.th12) + " " + response.townHallLevel;
-        } else if (response.townHallLevel == "13") {
-          e.setColor("#05F7E1");
-          town = emoji(emo.th13) + " " + response.townHallLevel;
-        } else if (response.townHallLevel == "14") {
-          e.setColor("#84F705");
-          town = emoji(emo.th14) + " " + response.townHallLevel;
-        } else {
-          town = emoji(emo.th15) + " " + response.townHallLevel;
-          e.setColor("#51B1FF");
+        switch (response.townHallLevel) {
+          case  1:
+            town = emoji(emo.th1) + " " + response.townHallLevel;
+            e.setColor("#FFD500");
+            break;
+          case  2:
+            town = emoji(emo.th2) + " " + response.townHallLevel;
+            e.setColor("#FFD500");
+            break;
+          case  3:
+            town = emoji(emo.th3) + " " + response.townHallLevel;
+            e.setColor("#FFD500");
+            break;
+          case  4:
+            town = emoji(emo.th4) + " " + response.townHallLevel;
+            e.setColor("#FFD500");
+            break;
+          case  5:
+            town = emoji(emo.th5) + " " + response.townHallLevel;
+            e.setColor("#FFD500");
+            break;
+          case  6:
+            town = emoji(emo.th6) + " " + response.townHallLevel;
+            e.setColor("#FFD500");
+            break;
+          case  7:
+            town = emoji(emo.th7) + " " + response.townHallLevel;
+            e.setColor("#FFD500");
+            break;
+          case  8:
+            town = emoji(emo.th8) + " " + response.townHallLevel;
+            e.setColor("#FFD500");
+            break;
+          case  9:
+            town = emoji(emo.th9) + " " + response.townHallLevel;
+            e.setColor("#000000");
+            break;
+          case  10:
+            town = emoji(emo.th10) + " " + response.townHallLevel;
+            e.setColor("#FF4C00");
+            break;
+          case  11:
+            town = emoji(emo.th11) + " " + response.townHallLevel;
+            e.setColor("#FFFFFF");
+            break;
+          case  12:
+            town = emoji(emo.th12) + " " + response.townHallLevel;
+            e.setColor("#0064FF");
+            break;
+          case  13:
+            town = emoji(emo.th13) + " " + response.townHallLevel;
+            e.setColor("#05F7E1");
+            break;
+          case  14:
+            town = emoji(emo.th14) + " " + response.townHallLevel;
+            e.setColor("#84F705");
+            break;
+          default:
+            town = emoji(emo.th15) + " " + response.townHallLevel;
+            e.setColor("#51B1FF");
+            break;
         }
         var bhemo;
-        if (response.builderHallLevel == "1") {
-          bhemo = emoji(emo.mdo1) + " " + response.builderHallLevel;
-        } else if (response.builderHallLevel == "2") {
-          bhemo = emoji(emo.mdo2) + " " + response.builderHallLevel;
-        } else if (response.builderHallLevel == "3") {
-          bhemo = emoji(emo.mdo3) + " " + response.builderHallLevel;
-        } else if (response.builderHallLevel == "4") {
-          bhemo = emoji(emo.mdo4) + " " + response.builderHallLevel;
-        } else if (response.builderHallLevel == "5") {
-          bhemo = emoji(emo.mdo5) + " " + response.builderHallLevel;
-        } else if (response.builderHallLevel == "6") {
-          bhemo = emoji(emo.mdo6) + " " + response.builderHallLevel;
-        } else if (response.builderHallLevel == "7") {
-          bhemo = emoji(emo.mdo7) + " " + response.builderHallLevel;
-        } else if (response.builderHallLevel == "8") {
-          bhemo = emoji(emo.mdo8) + " " + response.builderHallLevel;
-        } else if (response.builderHallLevel == "9") {
-          bhemo = emoji(emo.mdo9) + " " + response.builderHallLevel;
-        } else bhemo = "blocked";
+        switch (response.builderHallLevel) {
+          case 1:
+            bhemo = emoji(emo.mdo1) + " " + response.builderHallLevel;
+            break;
+          case 2:
+            bhemo = emoji(emo.mdo2) + " " + response.builderHallLevel;
+            break;
+          case 3:
+            bhemo = emoji(emo.mdo3) + " " + response.builderHallLevel;
+            break;
+          case 4:
+            bhemo = emoji(emo.mdo4) + " " + response.builderHallLevel;
+            break;
+          case 5:
+            bhemo = emoji(emo.mdo5) + " " + response.builderHallLevel;
+            break;
+          case 6:
+            bhemo = emoji(emo.mdo6) + " " + response.builderHallLevel;
+            break;
+          case 7:
+            bhemo = emoji(emo.mdo7) + " " + response.builderHallLevel;
+            break;
+          case 8:
+            bhemo = emoji(emo.mdo8) + " " + response.builderHallLevel;
+            break;
+          case 9:
+            bhemo = emoji(emo.mdo9) + " " + response.builderHallLevel;
+            break;
+          default:
+            bhemo = "blocked";
+        };
 
         if (response.clan != undefined || response.clan != null)
           var clan =
@@ -211,130 +265,190 @@ module.exports = {
         ) {
         } else {
           var emoLabel1;
-          if (response.labels[0].name == "Active Daily") {
-            emoLabel1 = emoji(emo.ActiveDaily);
-          } else if (response.labels[0].name == "Active Donator") {
-            emoLabel1 = emoji(emo.ActiveDonator);
-          } else if (response.labels[0].name == "Amateur Attacker") {
-            emoLabel1 = emoji(emo.AmateurAttacker);
-          } else if (response.labels[0].name == "Hungry Learner") {
-            emoLabel1 = emoji(emo.AngryLearner);
-          } else if (response.labels[0].name == "Base Designing") {
-            emoLabel1 = emoji(emo.BaseDesigning);
-          } else if (response.labels[0].name == "Builder Base") {
-            emoLabel1 = emoji(emo.BuilderBase);
-          } else if (response.labels[0].name == "Clan Capital") {
-            emoLabel1 = emoji(emo.ClanCapital);
-          } else if (response.labels[0].name == "Clan Games") {
-            emoLabel1 = emoji(emo.ClanGames);
-          } else if (response.labels[0].name == "Clan Wars") {
-            emoLabel1 = emoji(emo.ClanWars);
-          } else if (response.labels[0].name == "ClanWarLeague") {
-            emoLabel1 = emoji(emo.ClanWarLeague);
-          } else if (response.labels[0].name == "Competitive") {
-            emoLabel1 = emoji(emo.Competitive);
-          } else if (response.labels[0].name == "Farming") {
-            emoLabel1 = emoji(emo.Farming);
-          } else if (response.labels[0].name == "Friendly Wars") {
-            emoLabel1 = emoji(emo.FriendlyWars);
-          } else if (response.labels[0].name == "Friendly") {
-            emoLabel1 = emoji(emo.Friendly);
-          } else if (response.labels[0].name == "Newbie") {
-            emoLabel1 = emoji(emo.Newbie);
-          } else if (response.labels[0].name == "Talkative") {
-            emoLabel1 = emoji(emo.Talkative);
-          } else if (response.labels[0].name == "Teacher") {
-            emoLabel1 = emoji(emo.Teacher);
-          } else if (response.labels[0].name == "Trophy Pushing") {
-            emoLabel1 = emoji(emo.TrophyPushing);
-          } else if (response.labels[0].name == "Veteran") {
-            emoLabel1 = emoji(emo.Veteran);
-          } else {
-            emoLabel1 = ":black_medium_square:";
+          switch (response.labels[0].id) {
+            case  57000009:
+              emoLabel1 = emoji(emo.ActiveDaily);
+              break;
+            case  57000008:
+              emoLabel1 = emoji(emo.ActiveDonator);
+              break;
+            case  57000017:
+              emoLabel1 = emoji(emo.AmateurAttacker);
+              break;
+            case  57000010:
+              emoLabel1 = emoji(emo.AngryLearner);
+              break;
+            case  57000006:
+              emoLabel1 = emoji(emo.BaseDesigning);
+              break;
+            case  57000005:
+              emoLabel1 = emoji(emo.BuilderBase);
+              break;
+            case  57000018:
+              emoLabel1 = emoji(emo.ClanCapital);
+              break;
+            case  57000004:
+              emoLabel1 = emoji(emo.ClanGames);
+              break;
+            case  57000000:
+              emoLabel1 = emoji(emo.ClanWars);
+              break;
+            case  57000001:
+              emoLabel1 = emoji(emo.ClanWarLeague);
+              break;
+            case  57000014:
+              emoLabel1 = emoji(emo.Competitive);
+              break;
+            case  57000007:
+              emoLabel1 = emoji(emo.Farming);
+              break;
+            case  57000003:
+              emoLabel1 = emoji(emo.FriendlyWars);
+              break;
+            case  57000011:
+              emoLabel1 = emoji(emo.Friendly);
+              break;
+            case  57000016:
+              emoLabel1 = emoji(emo.Newbie);
+              break;
+            case  57000012:
+              emoLabel1 = emoji(emo.Talkative);
+              break;
+            case  57000013:
+              emoLabel1 = emoji(emo.Teacher);
+              break;
+            case  57000002:
+              emoLabel1 = emoji(emo.TrophyPushing);
+              break;
+            case  57000015:
+              emoLabel1 = emoji(emo.Veteran);
+              break;
+            default:
+              emoLabel1 = ":black_medium_square:";
           }
           var emoLabel2;
-          if (response.labels[1].name == "Active Daily") {
-            emoLabel2 = emoji(emo.ActiveDaily);
-          } else if (response.labels[1].name == "Active Donator") {
-            emoLabel2 = emoji(emo.ActiveDonator);
-          } else if (response.labels[1].name == "Amateur Attacker") {
-            emoLabel2 = emoji(emo.AmateurAttacker);
-          } else if (response.labels[1].name == "Hungry Learner") {
-            emoLabel2 = emoji(emo.AngryLearner);
-          } else if (response.labels[1].name == "Base Designing") {
-            emoLabel2 = emoji(emo.BaseDesigning);
-          } else if (response.labels[1].name == "Builder Base") {
-            emoLabel2 = emoji(emo.BuilderBase);
-          } else if (response.labels[1].name == "Clan Capital") {
-            emoLabel2 = emoji(emo.ClanCapital);
-          } else if (response.labels[1].name == "Clan Games") {
-            emoLabel2 = emoji(emo.ClanGames);
-          } else if (response.labels[1].name == "Clan Wars") {
-            emoLabel2 = emoji(emo.ClanWars);
-          } else if (response.labels[1].name == "ClanWarLeague") {
-            emoLabel2 = emoji(emo.ClanWarLeague);
-          } else if (response.labels[1].name == "Competitive") {
-            emoLabel2 = emoji(emo.Competitive);
-          } else if (response.labels[1].name == "Farming") {
-            emoLabel2 = emoji(emo.Farming);
-          } else if (response.labels[1].name == "Friendly Wars") {
-            emoLabel2 = emoji(emo.FriendlyWars);
-          } else if (response.labels[1].name == "Friendly") {
-            emoLabel2 = emoji(emo.Friendly);
-          } else if (response.labels[1].name == "Newbie") {
-            emoLabel2 = emoji(emo.Newbie);
-          } else if (response.labels[1].name == "Talkative") {
-            emoLabel2 = emoji(emo.Talkative);
-          } else if (response.labels[1].name == "Teacher") {
-            emoLabel2 = emoji(emo.Teacher);
-          } else if (response.labels[1].name == "Trophy Pushing") {
-            emoLabel2 = emoji(emo.TrophyPushing);
-          } else if (response.labels[1].name == "Veteran") {
-            emoLabel2 = emoji(emo.Veteran);
-          } else {
-            emoLabel2 = ":black_medium_square:";
+          switch (response.labels[1].id) {
+            case  57000009:
+              emoLabel2 = emoji(emo.ActiveDaily);
+              break;
+            case  57000008:
+              emoLabel2 = emoji(emo.ActiveDonator);
+              break;
+            case  57000017:
+              emoLabel2 = emoji(emo.AmateurAttacker);
+              break;
+            case  57000010:
+              emoLabel2 = emoji(emo.AngryLearner);
+              break;
+            case  57000006:
+              emoLabel2 = emoji(emo.BaseDesigning);
+              break;
+            case  57000005:
+              emoLabel2 = emoji(emo.BuilderBase);
+              break;
+            case  57000018:
+              emoLabel2 = emoji(emo.ClanCapital);
+              break;
+            case  57000004:
+              emoLabel2 = emoji(emo.ClanGames);
+              break;
+            case  57000000:
+              emoLabel2 = emoji(emo.ClanWars);
+              break;
+            case  57000001:
+              emoLabel2 = emoji(emo.ClanWarLeague);
+              break;
+            case  57000014:
+              emoLabel2 = emoji(emo.Competitive);
+              break;
+            case  57000007:
+              emoLabel2 = emoji(emo.Farming);
+              break;
+            case  57000003:
+              emoLabel2 = emoji(emo.FriendlyWars);
+              break;
+            case  57000011:
+              emoLabel2 = emoji(emo.Friendly);
+              break;
+            case  57000016:
+              emoLabel2 = emoji(emo.Newbie);
+              break;
+            case  57000012:
+              emoLabel2 = emoji(emo.Talkative);
+              break;
+            case  57000013:
+              emoLabel2 = emoji(emo.Teacher);
+              break;
+            case  57000002:
+              emoLabel2 = emoji(emo.TrophyPushing);
+              break;
+            case  57000015:
+              emoLabel2 = emoji(emo.Veteran);
+              break;
+            default:
+              emoLabel2 = ":black_medium_square:";
           }
           var emoLabel3;
-          if (response.labels[2].name == "Active Daily") {
-            emoLabel3 = emoji(emo.ActiveDaily);
-          } else if (response.labels[2].name == "Active Donator") {
-            emoLabel3 = emoji(emo.ActiveDonator);
-          } else if (response.labels[2].name == "Amateur Attacker") {
-            emoLabel3 = emoji(emo.AmateurAttacker);
-          } else if (response.labels[2].name == "Hungry Learner") {
-            emoLabel3 = emoji(emo.AngryLearner);
-          } else if (response.labels[2].name == "Base Designing") {
-            emoLabel3 = emoji(emo.BaseDesigning);
-          } else if (response.labels[2].name == "Builder Base") {
-            emoLabel3 = emoji(emo.BuilderBase);
-          } else if (response.labels[2].name == "Clan Capital") {
-            emoLabel3 = emoji(emo.ClanCapital);
-          } else if (response.labels[2].name == "Clan Games") {
-            emoLabel3 = emoji(emo.ClanGames);
-          } else if (response.labels[2].name == "Clan Wars") {
-            emoLabel3 = emoji(emo.ClanWars);
-          } else if (response.labels[2].name == "ClanWarLeague") {
-            emoLabel3 = emoji(emo.ClanWarLeague);
-          } else if (response.labels[2].name == "Competitive") {
-            emoLabel3 = emoji(emo.Competitive);
-          } else if (response.labels[2].name == "Farming") {
-            emoLabel3 = emoji(emo.Farming);
-          } else if (response.labels[2].name == "Friendly Wars") {
-            emoLabel3 = emoji(emo.FriendlyWars);
-          } else if (response.labels[2].name == "Friendly") {
-            emoLabel3 = emoji(emo.Friendly);
-          } else if (response.labels[2].name == "Newbie") {
-            emoLabel3 = emoji(emo.Newbie);
-          } else if (response.labels[2].name == "Talkative") {
-            emoLabel3 = emoji(emo.Talkative);
-          } else if (response.labels[2].name == "Teacher") {
-            emoLabel3 = emoji(emo.Teacher);
-          } else if (response.labels[2].name == "Trophy Pushing") {
-            emoLabel3 = emoji(emo.TrophyPushing);
-          } else if (response.labels[2].name == "Veteran") {
-            emoLabel3 = emoji(emo.Veteran);
-          } else {
-            emoLabel3 = ":black_medium_square:";
+          switch (response.labels[2].id) {
+            case  57000009:
+              emoLabel3 = emoji(emo.ActiveDaily);
+              break;
+            case  57000008:
+              emoLabel3 = emoji(emo.ActiveDonator);
+              break;
+            case  57000017:
+              emoLabel3 = emoji(emo.AmateurAttacker);
+              break;
+            case  57000010:
+              emoLabel3 = emoji(emo.AngryLearner);
+              break;
+            case  57000006:
+              emoLabel3 = emoji(emo.BaseDesigning);
+              break;
+            case  57000005:
+              emoLabel3 = emoji(emo.BuilderBase);
+              break;
+            case  57000018:
+              emoLabel3 = emoji(emo.ClanCapital);
+              break;
+            case  57000004:
+              emoLabel3 = emoji(emo.ClanGames);
+              break;
+            case  57000000:
+              emoLabel3 = emoji(emo.ClanWars);
+              break;
+            case  57000001:
+              emoLabel3 = emoji(emo.ClanWarLeague);
+              break;
+            case  57000014:
+              emoLabel3 = emoji(emo.Competitive);
+              break;
+            case  57000007:
+              emoLabel3 = emoji(emo.Farming);
+              break;
+            case  57000003:
+              emoLabel3 = emoji(emo.FriendlyWars);
+              break;
+            case  57000011:
+              emoLabel3 = emoji(emo.Friendly);
+              break;
+            case  57000016:
+              emoLabel3 = emoji(emo.Newbie);
+              break;
+            case  57000012:
+              emoLabel3 = emoji(emo.Talkative);
+              break;
+            case  57000013:
+              emoLabel3 = emoji(emo.Teacher);
+              break;
+            case  57000002:
+              emoLabel3 = emoji(emo.TrophyPushing);
+              break;
+            case  57000015:
+              emoLabel3 = emoji(emo.Veteran);
+              break;
+            default:
+              emoLabel3 = ":black_medium_square:";
           }
         }
 
