@@ -185,7 +185,6 @@ module.exports = {
             capligue = emoji(emo.titan3);
           } else capligue = emoji(emo.no_league);
         } else capligue = emoji(emo.no_league);
-        console.log(response.capitalLeague.id);
 
         if (
           response.labels === undefined ||
