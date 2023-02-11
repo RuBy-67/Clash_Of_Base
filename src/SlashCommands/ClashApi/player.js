@@ -79,70 +79,70 @@ module.exports = {
         if (response.league != undefined || response.league != null) {
           var ligue;
           switch (response.league.id) {
-            case  29000022:
+            case 29000022:
               ligue = emoji(emo.legend);
               break;
-            case  29000001:
+            case 29000001:
               ligue = emoji(emo.bronze1);
               break;
-            case  29000002:
+            case 29000002:
               ligue = emoji(emo.bronze2);
               break;
-            case  29000003:
+            case 29000003:
               ligue = emoji(emo.bronze3);
               break;
-            case  29000004:
+            case 29000004:
               ligue = emoji(emo.silver3);
               break;
-            case  29000005:
+            case 29000005:
               ligue = emoji(emo.silver2);
               break;
-            case  29000006:
+            case 29000006:
               ligue = emoji(emo.silver1);
               break;
-            case  29000007:
+            case 29000007:
               ligue = emoji(emo.gold3);
               break;
-            case  29000008:
+            case 29000008:
               ligue = emoji(emo.gold2);
               break;
-            case  29000009:
+            case 29000009:
               ligue = emoji(emo.gold1);
               break;
-            case  29000010:
+            case 29000010:
               ligue = emoji(emo.cristal3);
               break;
-            case  29000011:
+            case 29000011:
               ligue = emoji(emo.cristal2);
               break;
-            case  29000012:
+            case 29000012:
               ligue = emoji(emo.cristal1);
               break;
-            case  29000013:
+            case 29000013:
               ligue = emoji(emo.master3);
               break;
-            case  29000014:
+            case 29000014:
               ligue = emoji(emo.master2);
               break;
-            case  29000015:
+            case 29000015:
               ligue = emoji(emo.master1);
               break;
-            case  29000016:
+            case 29000016:
               ligue = emoji(emo.champ3);
               break;
-            case  29000017:
+            case 29000017:
               ligue = emoji(emo.champ2);
               break;
-            case  29000018:
+            case 29000018:
               ligue = emoji(emo.champ1);
               break;
-            case  29000019:
+            case 29000019:
               ligue = emoji(emo.titan3);
               break;
-            case  29000020:
+            case 29000020:
               ligue = emoji(emo.titan2);
               break;
-            case  29000021:
+            case 29000021:
               ligue = emoji(emo.titan3);
               break;
             default:
@@ -152,59 +152,59 @@ module.exports = {
 
         var town;
         switch (response.townHallLevel) {
-          case  1:
+          case 1:
             town = emoji(emo.th1) + " " + response.townHallLevel;
             e.setColor("#FFD500");
             break;
-          case  2:
+          case 2:
             town = emoji(emo.th2) + " " + response.townHallLevel;
             e.setColor("#FFD500");
             break;
-          case  3:
+          case 3:
             town = emoji(emo.th3) + " " + response.townHallLevel;
             e.setColor("#FFD500");
             break;
-          case  4:
+          case 4:
             town = emoji(emo.th4) + " " + response.townHallLevel;
             e.setColor("#FFD500");
             break;
-          case  5:
+          case 5:
             town = emoji(emo.th5) + " " + response.townHallLevel;
             e.setColor("#FFD500");
             break;
-          case  6:
+          case 6:
             town = emoji(emo.th6) + " " + response.townHallLevel;
             e.setColor("#FFD500");
             break;
-          case  7:
+          case 7:
             town = emoji(emo.th7) + " " + response.townHallLevel;
             e.setColor("#FFD500");
             break;
-          case  8:
+          case 8:
             town = emoji(emo.th8) + " " + response.townHallLevel;
             e.setColor("#FFD500");
             break;
-          case  9:
+          case 9:
             town = emoji(emo.th9) + " " + response.townHallLevel;
             e.setColor("#000000");
             break;
-          case  10:
+          case 10:
             town = emoji(emo.th10) + " " + response.townHallLevel;
             e.setColor("#FF4C00");
             break;
-          case  11:
+          case 11:
             town = emoji(emo.th11) + " " + response.townHallLevel;
             e.setColor("#FFFFFF");
             break;
-          case  12:
+          case 12:
             town = emoji(emo.th12) + " " + response.townHallLevel;
             e.setColor("#0064FF");
             break;
-          case  13:
+          case 13:
             town = emoji(emo.th13) + " " + response.townHallLevel;
             e.setColor("#05F7E1");
             break;
-          case  14:
+          case 14:
             town = emoji(emo.th14) + " " + response.townHallLevel;
             e.setColor("#84F705");
             break;
@@ -244,7 +244,7 @@ module.exports = {
             break;
           default:
             bhemo = "blocked";
-        };
+        }
 
         if (response.clan != undefined || response.clan != null)
           var clan =
@@ -266,61 +266,61 @@ module.exports = {
         } else {
           var emoLabel1;
           switch (response.labels[0].id) {
-            case  57000009:
+            case 57000009:
               emoLabel1 = emoji(emo.ActiveDaily);
               break;
-            case  57000008:
+            case 57000008:
               emoLabel1 = emoji(emo.ActiveDonator);
               break;
-            case  57000017:
+            case 57000017:
               emoLabel1 = emoji(emo.AmateurAttacker);
               break;
-            case  57000010:
+            case 57000010:
               emoLabel1 = emoji(emo.AngryLearner);
               break;
-            case  57000006:
+            case 57000006:
               emoLabel1 = emoji(emo.BaseDesigning);
               break;
-            case  57000005:
+            case 57000005:
               emoLabel1 = emoji(emo.BuilderBase);
               break;
-            case  57000018:
+            case 57000018:
               emoLabel1 = emoji(emo.ClanCapital);
               break;
-            case  57000004:
+            case 57000004:
               emoLabel1 = emoji(emo.ClanGames);
               break;
-            case  57000000:
+            case 57000000:
               emoLabel1 = emoji(emo.ClanWars);
               break;
-            case  57000001:
+            case 57000001:
               emoLabel1 = emoji(emo.ClanWarLeague);
               break;
-            case  57000014:
+            case 57000014:
               emoLabel1 = emoji(emo.Competitive);
               break;
-            case  57000007:
+            case 57000007:
               emoLabel1 = emoji(emo.Farming);
               break;
-            case  57000003:
+            case 57000003:
               emoLabel1 = emoji(emo.FriendlyWars);
               break;
-            case  57000011:
+            case 57000011:
               emoLabel1 = emoji(emo.Friendly);
               break;
-            case  57000016:
+            case 57000016:
               emoLabel1 = emoji(emo.Newbie);
               break;
-            case  57000012:
+            case 57000012:
               emoLabel1 = emoji(emo.Talkative);
               break;
-            case  57000013:
+            case 57000013:
               emoLabel1 = emoji(emo.Teacher);
               break;
-            case  57000002:
+            case 57000002:
               emoLabel1 = emoji(emo.TrophyPushing);
               break;
-            case  57000015:
+            case 57000015:
               emoLabel1 = emoji(emo.Veteran);
               break;
             default:
@@ -328,61 +328,61 @@ module.exports = {
           }
           var emoLabel2;
           switch (response.labels[1].id) {
-            case  57000009:
+            case 57000009:
               emoLabel2 = emoji(emo.ActiveDaily);
               break;
-            case  57000008:
+            case 57000008:
               emoLabel2 = emoji(emo.ActiveDonator);
               break;
-            case  57000017:
+            case 57000017:
               emoLabel2 = emoji(emo.AmateurAttacker);
               break;
-            case  57000010:
+            case 57000010:
               emoLabel2 = emoji(emo.AngryLearner);
               break;
-            case  57000006:
+            case 57000006:
               emoLabel2 = emoji(emo.BaseDesigning);
               break;
-            case  57000005:
+            case 57000005:
               emoLabel2 = emoji(emo.BuilderBase);
               break;
-            case  57000018:
+            case 57000018:
               emoLabel2 = emoji(emo.ClanCapital);
               break;
-            case  57000004:
+            case 57000004:
               emoLabel2 = emoji(emo.ClanGames);
               break;
-            case  57000000:
+            case 57000000:
               emoLabel2 = emoji(emo.ClanWars);
               break;
-            case  57000001:
+            case 57000001:
               emoLabel2 = emoji(emo.ClanWarLeague);
               break;
-            case  57000014:
+            case 57000014:
               emoLabel2 = emoji(emo.Competitive);
               break;
-            case  57000007:
+            case 57000007:
               emoLabel2 = emoji(emo.Farming);
               break;
-            case  57000003:
+            case 57000003:
               emoLabel2 = emoji(emo.FriendlyWars);
               break;
-            case  57000011:
+            case 57000011:
               emoLabel2 = emoji(emo.Friendly);
               break;
-            case  57000016:
+            case 57000016:
               emoLabel2 = emoji(emo.Newbie);
               break;
-            case  57000012:
+            case 57000012:
               emoLabel2 = emoji(emo.Talkative);
               break;
-            case  57000013:
+            case 57000013:
               emoLabel2 = emoji(emo.Teacher);
               break;
-            case  57000002:
+            case 57000002:
               emoLabel2 = emoji(emo.TrophyPushing);
               break;
-            case  57000015:
+            case 57000015:
               emoLabel2 = emoji(emo.Veteran);
               break;
             default:
@@ -390,61 +390,61 @@ module.exports = {
           }
           var emoLabel3;
           switch (response.labels[2].id) {
-            case  57000009:
+            case 57000009:
               emoLabel3 = emoji(emo.ActiveDaily);
               break;
-            case  57000008:
+            case 57000008:
               emoLabel3 = emoji(emo.ActiveDonator);
               break;
-            case  57000017:
+            case 57000017:
               emoLabel3 = emoji(emo.AmateurAttacker);
               break;
-            case  57000010:
+            case 57000010:
               emoLabel3 = emoji(emo.AngryLearner);
               break;
-            case  57000006:
+            case 57000006:
               emoLabel3 = emoji(emo.BaseDesigning);
               break;
-            case  57000005:
+            case 57000005:
               emoLabel3 = emoji(emo.BuilderBase);
               break;
-            case  57000018:
+            case 57000018:
               emoLabel3 = emoji(emo.ClanCapital);
               break;
-            case  57000004:
+            case 57000004:
               emoLabel3 = emoji(emo.ClanGames);
               break;
-            case  57000000:
+            case 57000000:
               emoLabel3 = emoji(emo.ClanWars);
               break;
-            case  57000001:
+            case 57000001:
               emoLabel3 = emoji(emo.ClanWarLeague);
               break;
-            case  57000014:
+            case 57000014:
               emoLabel3 = emoji(emo.Competitive);
               break;
-            case  57000007:
+            case 57000007:
               emoLabel3 = emoji(emo.Farming);
               break;
-            case  57000003:
+            case 57000003:
               emoLabel3 = emoji(emo.FriendlyWars);
               break;
-            case  57000011:
+            case 57000011:
               emoLabel3 = emoji(emo.Friendly);
               break;
-            case  57000016:
+            case 57000016:
               emoLabel3 = emoji(emo.Newbie);
               break;
-            case  57000012:
+            case 57000012:
               emoLabel3 = emoji(emo.Talkative);
               break;
-            case  57000013:
+            case 57000013:
               emoLabel3 = emoji(emo.Teacher);
               break;
-            case  57000002:
+            case 57000002:
               emoLabel3 = emoji(emo.TrophyPushing);
               break;
-            case  57000015:
+            case 57000015:
               emoLabel3 = emoji(emo.Veteran);
               break;
             default:
@@ -604,23 +604,23 @@ module.exports = {
           {
             name: "Hero :",
             value:
-              emoji(emo.king) +
+              emoji(emo["Barbarian King"]) +
               " **" +
               king +
               " " +
-              emoji(emo.queen) +
+              emoji(emo["Archer Queen"]) +
               " " +
               queen +
               " " +
-              emoji(emo.warden) +
+              emoji(emo["Grand Warden"]) +
               " " +
               gardien +
               " " +
-              emoji(emo.champ) +
+              emoji(emo["Royal Champion"]) +
               " " +
               championne +
               "**\n" +
-              emoji(emo.mdc) +
+              emoji(emo["Battle Machine"]) +
               " **" +
               mdc +
               "**",
