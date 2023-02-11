@@ -435,6 +435,11 @@ module.exports = {
             inline: true,
           },
           {
+            name: "Clan Roles :",
+            value: response.role,
+            inline: true,
+          },
+          {
             name: "War stars :",
             value: emoji(emo.star) + " " + response.warStars + " ",
             inline: true,
