@@ -21,16 +21,12 @@ module.exports = {
     function emoji(id) {
       return client.emojis.cache.get(id).toString();
     }
-    const values = [
-      3, 7, 11, 15, 19, 23, 27, 31, 35, 39, 43, 47, 51, 55, 59, 63, 67, 71, 75,
-      79, 83, 87, 91, 95, 99,
-    ];
     const tag = await interaction.options.getString("tag");
     let error = new Discord.MessageEmbed()
       // Message D'erreurs
       .setDescription(
         "Error - Please provide a correct Tag\nTry :",
-        "`/player`"
+        "`/profile`"
       )
       .setColor(config.color_error)
       .setFooter({
@@ -55,37 +51,94 @@ module.exports = {
       })
       .then((response) => {
         const embed = new Discord.MessageEmbed();
-        var descriptiontroupe = "";
+        var descriptiontroupeRose = "";
+        var descriptiontroupeNoire = "";
         var descriptionmdo = "";
+        var descriptionmachine = "";
+        var descriptionannimals = "";
+        var descriptionspellRose = "";
+        var descriptionspellNoire = "";
+        var descriptionshero = "";
+        var descriptiontroupeSuper = "";
+        //troupe
         for (let i = 0; i < response.troops.length; i++) {
           var nom = `${response.troops[i].name}`;
           const emoj = emoji(emo[nom]);
           const level = response.troops[i].level;
           const max = response.troops[i].maxLevel;
-          if (response.troops[i].village == "builderBase") {
-            descriptionmdo += `${emoj} ${level} /${max}`;
-            if (values.includes(i)) {
-              descriptionmdo += "\n";
-            }
-          } else {
-            descriptiontroupe += `${emoj} ${level} /${max}`;
-            if (values.includes(i)) {
-              descriptiontroupe += "\n";
-            }
+          //si Builder Base
+          switch (true) {
+            case response.troops[i].village === "builderBase":
+              descriptionmdo += `${emoj} ${level} /${max}`;
+              break;
+            //Si machine de guerre
+            case nom === "Wall Wrecker" ||
+              nom === "Flame Flinger" ||
+              nom === "Battle Blimp" ||
+              nom === "Siege Barracks" ||
+              nom === "Stone Slammer" ||
+              nom === "Log Launcher":
+              descriptionmachine += `${emoj} ${level} /${max}`;
+              break;
+            //Si animals
+            case nom === "Frosty" ||
+              nom === "L.A.S.S.I" ||
+              nom === "Poison Lizard" ||
+              nom === "Unicorn" ||
+              nom === "Diggy" ||
+              nom === "Phoenix" ||
+              nom === "Mighty Yak" ||
+              nom === "Electro Owl":
+              descriptionannimals += `${emoj} ${level} /${max}`;
+              break;
+            case nom === "Minion" ||
+              nom === "Hog Rider" ||
+              nom === "Valkyrie" ||
+              nom === "Golem" ||
+              nom === "Witch" ||
+              nom === "Bowler" ||
+              nom === "Ice Golem" ||
+              nom === "Hog Rider" ||
+              nom === "Headhunter":
+              descriptiontroupeNoire += `${emoj} ${level} /${max}`;
+              break;
+            case nom === "Super Giant" ||
+              nom === "Rocket Balloon" ||
+              nom === "Super Wall Breaker" ||
+              nom === "Ice Hound" ||
+              nom === "Super Witch" ||
+              nom === "Super Archer" ||
+              nom === "Super Bowler" ||
+              nom === "Super Dragon" ||
+              nom === "Super Minion" ||
+              nom === "Super Wizard" ||
+              nom === "Super Valkyrie" ||
+              nom === "Inferno Dragon":
+              descriptiontroupeSuper += `${emoj} ${level} /${max}`;
+              break;
+            default:
+              descriptiontroupeRose += `${emoj} ${level} /${max}`;
+              break;
           }
         }
-        var descriptionspell = "";
+        ///Si Sort
         for (let i = 0; i < response.spells.length; i++) {
           var nom = `${response.spells[i].name}`;
           const emoj = emoji(emo[nom]);
           const level = response.spells[i].level;
           const max = response.spells[i].maxLevel;
-          descriptionspell += `${emoj} ${level} /${max}`;
-          if (values.includes(i)) {
-            descriptionspell += "\n";
+          switch (true) {
+            case nom === "Poison Spell" ||
+              nom === "Earthquake Spell" ||
+              nom === "Haste Spell" ||
+              nom === "Skeleton Spell" ||
+              nom === "Bat Spell":
+              descriptionspellNoire += `${emoj} ${level} /${max}`;
+            default:
+              descriptionspellRose += `${emoj} ${level} /${max}`;
           }
         }
-        var descriptionshero = "";
+        //Si héros
         for (let i = 0; i < response.heroes.length; i++) {
           if (response.heroes[i].name === undefined) continue;
           var nom = `${response.heroes[i].name}`;
@@ -93,7 +146,7 @@ module.exports = {
           const level = response.heroes[i].level;
           const max = response.heroes[i].maxLevel;
           descriptionshero += `${emoj} ${level} /${max}`;
-          if (i === 1) {
+          if (i === 1 || i === 3) {
             descriptionshero += "\n";
           }
         }
@@ -145,27 +198,52 @@ module.exports = {
             town = emoji(emo.th15);
             break;
         }
+
         embed.setTitle(town + " **" + response.name + "**");
         embed.setURL(
           "https://link.clashofclans.com/?action=OpenPlayerProfile&tag=%" +
             response.tag.replace("#", "23")
         );
         embed.setColor(config.colorPink);
-        embed.setDescription("**Troops :**\n" + descriptiontroupe);
+        embed.setDescription(
+          "**Troops :** " + emoji(emo.pink) + "\n>>> " + descriptiontroupeRose
+        );
+
         embed.addFields(
           {
-            name: "Spell :",
-            value: descriptionspell,
+            name: "Troupe : " + emoji(emo.dark),
+            value: ">>> " + descriptiontroupeNoire,
+          },
+          {
+            name: "Spell : " + emoji(emo.pink),
+            value: ">>> " + descriptionspellRose,
+          },
+          {
+            name: "Spell : " + emoji(emo.dark),
+            value: ">>> " + descriptionspellNoire,
+          },
+          {
+            name: "Super Troupe",
+            value: ">>> " + descriptiontroupeSuper,
+          },
+          {
+            name: "War Machine",
+            value: ">>> " + descriptionmachine,
           },
           {
             name: "Troops Builder Base:",
-            value: descriptionmdo,
+            value: ">>> " + descriptionmdo,
           },
           {
             name: "Hero :",
-            value: descriptionshero,
+            value: ">>> " + descriptionshero,
+          },
+          {
+            name: "Annimals",
+            value: ">>> " + descriptionannimals,
           }
         );
+        console.log(descriptionannimals);
         return interaction.reply({ embeds: [embed] });
       });
   },

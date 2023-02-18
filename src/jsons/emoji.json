@@ -139,10 +139,10 @@
   "Skeleton Spell": "1074009088389812314",
 
   "Rocket Balloon": "1074009090474397868",
-  "Wall Wrecker": "1074009075253260289",
+  "Stone Slammer": "1074009075253260289",
   "Siege Barracks": "1074009078847766679",
   "Dragon Rider": "1074009035260575835",
-  "Stone Slammer": "1074009039618445384",
+  "Wall Wrecker": "1074009039618445384",
   "Battle Blimp": "1074008998732370010",
   "Electro Owl": "1074009000330395699",
   "Electro Dragon": "1074009003660681376",
@@ -189,5 +189,7 @@
   "Night Witch": "1074056408590467202",
   "Super P.E.K.K.A": "1074056411199320136",
   "Cannon Cart": "1074056640095059968",
-  "200pxVignettes_Troupes_ephemeres": "1074009419865669713"
+  "200pxVignettes_Troupes_ephemeres": "1074009419865669713",
+  "dark": "1076508850875809863",
+  "pink": "1076508848464072746"
 }
