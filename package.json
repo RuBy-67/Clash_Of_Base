@@ -12,6 +12,7 @@
     "api": "^5.0.6",
     "ascii-table": "^0.0.9",
     "batch": "^0.6.1",
+    "canvas": "^2.11.0",
     "chalk": "^4.1.2",
     "clash-of-clans-api": "^0.6.4",
     "discord.js": "^13.3.1",
