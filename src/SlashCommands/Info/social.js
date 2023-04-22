@@ -16,7 +16,7 @@ module.exports = {
           emoji(emo.github) +
           `** | [GitHub_RuBy67](https://github.com/RuBy-67)**\n➼ ` +
           emoji(emo.Twitter) +
-          `** | [@ruben_bey67](https://twitter.com/ruben_bey67)**\n➼ ` +
+          `** | [@](https://twitter.com/)**\n➼ ` +
           emoji(emo.discord) +
           `** |** <@375590278880428034>\n\n *Write me if you need any update in bot*`
       )
